@@ -1,0 +1,983 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px 15px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #1e293b;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #bfdbfe,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            #a7f3d0,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #ecfeff
+        );
+
+    transition: background 0.4s ease,
+                color 0.4s ease;
+}
+
+
+/* Main Container */
+
+.app-container {
+    width: 100%;
+    max-width: 560px;
+}
+
+
+.app-card {
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 26px;
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.16);
+
+    backdrop-filter: blur(15px);
+
+    animation: cardEntry 0.7s ease;
+
+    transition: background 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+
+/* Header */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+
+.logo {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 12px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #6366f1,
+        #06b6d4
+    );
+
+    color: white;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+
+.header h1 {
+    font-size: 30px;
+
+    color: #1e293b;
+
+    margin-bottom: 7px;
+}
+
+
+.header p {
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* Mode Buttons */
+
+.mode-buttons {
+    display: flex;
+
+    gap: 8px;
+
+    padding: 5px;
+
+    margin-bottom: 25px;
+
+    background: rgba(226, 232, 240, 0.65);
+
+    border-radius: 14px;
+}
+
+
+.mode-button {
+    flex: 1;
+
+    padding: 12px 8px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.mode-button.active {
+    background: white;
+
+    color: #4f46e5;
+
+    box-shadow:
+        0 4px 10px rgba(15, 23, 42, 0.08);
+}
+
+
+.mode-button:hover {
+    color: #4f46e5;
+}
+
+
+/* Section */
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+
+.section-title h2 {
+    font-size: 21px;
+
+    margin-bottom: 5px;
+}
+
+
+.section-title p {
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* Inputs */
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+
+.input-group label,
+.unit-box label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #475569;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.input-group input,
+.unit-box select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 2px solid #cbd5e1;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    color: #1e293b;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+
+.input-group input:focus,
+.unit-box select:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+
+/* Units */
+
+.unit-section {
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+.unit-box {
+    flex: 1;
+}
+
+
+.swap-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #e0e7ff;
+
+    color: #4f46e5;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.swap-button:hover {
+    transform: rotate(180deg);
+
+    background: #c7d2fe;
+}
+
+
+/* Primary Button */
+
+.primary-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #6366f1,
+        #06b6d4
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 20px rgba(79, 70, 229, 0.25);
+
+    transition: 0.25s;
+}
+
+
+.primary-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 13px 25px rgba(79, 70, 229, 0.3);
+}
+
+
+.primary-button:active {
+    transform: translateY(0);
+}
+
+
+/* Error */
+
+.error {
+    min-height: 20px;
+
+    margin: 9px 0;
+
+    text-align: center;
+
+    color: #dc2626;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* Result Card */
+
+.result-card,
+.bmi-result-card {
+    margin-top: 10px;
+
+    padding: 22px;
+
+    text-align: center;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(224, 231, 255, 0.9),
+            rgba(207, 250, 254, 0.9)
+        );
+
+    border: 1px solid rgba(99, 102, 241, 0.15);
+
+    transition: 0.3s;
+}
+
+
+.result-card.show,
+.bmi-result-card.show {
+    animation: resultAppear 0.45s ease;
+}
+
+
+.result-label {
+    margin-bottom: 8px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.result-card h2,
+.bmi-result-card h2 {
+    color: #4338ca;
+
+    font-size: 31px;
+
+    margin-bottom: 7px;
+}
+
+
+#weight-formula {
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* Copy Button */
+
+.copy-button {
+    margin-top: 13px;
+
+    padding: 8px 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.copy-button:hover {
+    background: #e0e7ff;
+}
+
+
+/* History */
+
+.history-section {
+    margin-top: 25px;
+}
+
+
+.history-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+
+.history-header h3 {
+    font-size: 16px;
+
+    margin-bottom: 3px;
+}
+
+
+.history-header p {
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+
+.small-button {
+    padding: 7px 11px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.small-button:hover {
+    background: #fecaca;
+}
+
+
+#history-list {
+    list-style: none;
+}
+
+
+#history-list li {
+    margin-bottom: 7px;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    color: #475569;
+
+    font-size: 13px;
+
+    animation: historyEntry 0.3s ease;
+}
+
+
+.empty-history {
+    text-align: center;
+
+    color: #94a3b8 !important;
+}
+
+
+/* Statistics */
+
+.statistics {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+
+.stat-box {
+    flex: 1;
+
+    padding: 12px 5px;
+
+    text-align: center;
+
+    border-radius: 11px;
+
+    background: rgba(255, 255, 255, 0.55);
+}
+
+
+.stat-box span {
+    display: block;
+
+    color: #4338ca;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+
+.stat-box small {
+    color: #64748b;
+
+    font-size: 10px;
+}
+
+
+/* BMI */
+
+.bmi-result-card {
+    margin-top: 12px;
+}
+
+
+.bmi-category {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #e0e7ff;
+
+    color: #4338ca;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+.bmi-message {
+    margin-top: 10px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+.bmi-info {
+    margin-top: 18px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: rgba(241, 245, 249, 0.75);
+}
+
+
+.bmi-info h3 {
+    margin-bottom: 6px;
+
+    font-size: 14px;
+}
+
+
+.bmi-info p {
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+.full-button {
+    width: 100%;
+
+    margin-top: 15px;
+}
+
+
+/* Bottom Controls */
+
+.bottom-controls {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.control-button {
+    flex: 1;
+
+    padding: 10px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    color: #475569;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+
+.control-button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Hidden */
+
+.hidden {
+    display: none;
+}
+
+
+/* Dark Mode */
+
+body.dark {
+    color: #e2e8f0;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #312e81,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            #164e63,
+            transparent 30%
+        ),
+        #0f172a;
+}
+
+
+body.dark .app-card {
+    background: rgba(15, 23, 42, 0.82);
+
+    border-color: rgba(148, 163, 184, 0.15);
+}
+
+
+body.dark .header h1,
+body.dark .section-title h2,
+body.dark .history-header h3 {
+    color: #f8fafc;
+}
+
+
+body.dark .header p,
+body.dark .section-title p,
+body.dark .history-header p {
+    color: #94a3b8;
+}
+
+
+body.dark .mode-buttons {
+    background: rgba(30, 41, 59, 0.8);
+}
+
+
+body.dark .mode-button.active {
+    background: #1e293b;
+
+    color: #a5b4fc;
+}
+
+
+body.dark .input-group label,
+body.dark .unit-box label {
+    color: #cbd5e1;
+}
+
+
+body.dark .input-group input,
+body.dark .unit-box select {
+    background: #1e293b;
+
+    border-color: #475569;
+
+    color: #f8fafc;
+}
+
+
+body.dark .result-card,
+body.dark .bmi-result-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(49, 46, 129, 0.5),
+            rgba(8, 145, 178, 0.35)
+        );
+}
+
+
+body.dark #weight-formula,
+body.dark .bmi-message,
+body.dark .bmi-info p {
+    color: #cbd5e1;
+}
+
+
+body.dark #history-list li {
+    background: rgba(30, 41, 59, 0.8);
+
+    color: #cbd5e1;
+}
+
+
+body.dark .stat-box {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+
+body.dark .stat-box small {
+    color: #94a3b8;
+}
+
+
+body.dark .control-button {
+    background: rgba(30, 41, 59, 0.8);
+
+    border-color: #475569;
+
+    color: #cbd5e1;
+}
+
+
+body.dark .bmi-info {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+
+body.dark .bmi-info h3 {
+    color: #f8fafc;
+}
+
+
+/* Glitch Mode */
+
+body.glitch {
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #020617 0px,
+            #020617 2px,
+            #0f172a 2px,
+            #0f172a 4px
+        );
+}
+
+
+body.glitch .app-card {
+    border: 2px solid #22d3ee;
+
+    box-shadow:
+        0 0 10px #22d3ee,
+        0 0 25px #a855f7;
+
+    animation: glitchCard 0.25s infinite;
+}
+
+
+body.glitch .header h1,
+body.glitch .result-card h2,
+body.glitch .bmi-result-card h2 {
+    text-shadow:
+        2px 0 #ef4444,
+        -2px 0 #22d3ee;
+}
+
+
+body.glitch .primary-button {
+    background: linear-gradient(
+        90deg,
+        #ec4899,
+        #06b6d4,
+        #8b5cf6
+    );
+}
+
+
+/* Animations */
+
+@keyframes cardEntry {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+@keyframes historyEntry {
+
+    from {
+        opacity: 0;
+
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes glitchCard {
+
+    0% {
+        transform: translate(0);
+    }
+
+    25% {
+        transform: translate(1px, -1px);
+    }
+
+    50% {
+        transform: translate(-1px, 1px);
+    }
+
+    75% {
+        transform: translate(1px, 1px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 550px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+
+    .app-card {
+        padding: 22px;
+
+        border-radius: 20px;
+    }
+
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+
+    .mode-button {
+        font-size: 12px;
+    }
+
+
+    .unit-section {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .swap-button {
+        margin: 0 auto;
+
+        transform: rotate(90deg);
+    }
+
+
+    .statistics {
+        flex-direction: column;
+    }
+
+
+    .bottom-controls {
+        flex-direction: column;
+    }
+}

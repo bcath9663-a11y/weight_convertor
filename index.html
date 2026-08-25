@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weight & Health Converter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app-container">
+
+        <div class="app-card">
+
+            <!-- Header -->
+            <header class="header">
+
+                <div class="logo">⚖</div>
+
+                <h1>Weight & Health</h1>
+
+                <p>Convert weight and calculate BMI easily</p>
+
+            </header>
+
+
+            <!-- Mode Buttons -->
+            <div class="mode-buttons">
+
+                <button
+                    id="weight-mode"
+                    class="mode-button active"
+                >
+                    ⚖ Weight Converter
+                </button>
+
+                <button
+                    id="bmi-mode"
+                    class="mode-button"
+                >
+                    📊 BMI Calculator
+                </button>
+
+            </div>
+
+
+            <!-- ================= WEIGHT CONVERTER ================= -->
+
+            <section id="weight-section" class="section">
+
+                <div class="section-title">
+                    <h2>Weight Converter</h2>
+                    <p>Convert between different weight units</p>
+                </div>
+
+
+                <!-- Input -->
+                <div class="input-group">
+
+                    <label for="weight-input">
+                        Enter Weight
+                    </label>
+
+                    <input
+                        type="number"
+                        id="weight-input"
+                        placeholder="Enter a number"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <!-- Units -->
+                <div class="unit-section">
+
+                    <div class="unit-box">
+
+                        <label for="from-unit">
+                            From
+                        </label>
+
+                        <select id="from-unit">
+
+                            <option value="kg">
+                                Kilograms (kg)
+                            </option>
+
+                            <option value="lb">
+                                Pounds (lb)
+                            </option>
+
+                            <option value="g">
+                                Grams (g)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        id="swap-button"
+                        class="swap-button"
+                        title="Swap units"
+                    >
+                        ⇄
+                    </button>
+
+
+                    <div class="unit-box">
+
+                        <label for="to-unit">
+                            To
+                        </label>
+
+                        <select id="to-unit">
+
+                            <option value="lb">
+                                Pounds (lb)
+                            </option>
+
+                            <option value="kg">
+                                Kilograms (kg)
+                            </option>
+
+                            <option value="g">
+                                Grams (g)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Convert -->
+                <button
+                    id="convert-button"
+                    class="primary-button"
+                >
+                    Convert
+                </button>
+
+
+                <p id="weight-error" class="error"></p>
+
+
+                <!-- Result -->
+                <div
+                    id="weight-result-card"
+                    class="result-card"
+                >
+
+                    <p class="result-label">
+                        Conversion Result
+                    </p>
+
+                    <h2 id="weight-result">
+                        --
+                    </h2>
+
+                    <p id="weight-formula">
+                        Enter a value to begin
+                    </p>
+
+                    <button
+                        id="copy-button"
+                        class="copy-button"
+                    >
+                        📋 Copy Result
+                    </button>
+
+                </div>
+
+
+                <!-- History -->
+                <div class="history-section">
+
+                    <div class="history-header">
+
+                        <div>
+                            <h3>Recent Conversions</h3>
+                            <p>Last 5 conversions</p>
+                        </div>
+
+                        <button
+                            id="clear-history"
+                            class="small-button"
+                        >
+                            Clear
+                        </button>
+
+                    </div>
+
+
+                    <ul id="history-list">
+
+                        <li class="empty-history">
+                            No conversions yet
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Statistics -->
+                <div class="statistics">
+
+                    <div class="stat-box">
+
+                        <span id="total-conversions">
+                            0
+                        </span>
+
+                        <small>
+                            Total
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-box">
+
+                        <span id="highest-value">
+                            0
+                        </span>
+
+                        <small>
+                            Highest Input
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-box">
+
+                        <span id="last-unit">
+                            --
+                        </span>
+
+                        <small>
+                            Last Unit
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= BMI CALCULATOR ================= -->
+
+            <section
+                id="bmi-section"
+                class="section hidden"
+            >
+
+                <div class="section-title">
+
+                    <h2>📊 BMI Calculator</h2>
+
+                    <p>
+                        Enter your weight and height
+                    </p>
+
+                </div>
+
+
+                <!-- BMI Weight -->
+
+                <div class="input-group">
+
+                    <label for="bmi-weight">
+                        Weight (kg)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="bmi-weight"
+                        placeholder="Example: 70"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <!-- BMI Height -->
+
+                <div class="input-group">
+
+                    <label for="bmi-height">
+                        Height (cm)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="bmi-height"
+                        placeholder="Example: 170"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <button
+                    id="calculate-bmi"
+                    class="primary-button"
+                >
+                    Calculate BMI
+                </button>
+
+
+                <p id="bmi-error" class="error"></p>
+
+
+                <!-- BMI Result -->
+
+                <div
+                    id="bmi-result-card"
+                    class="bmi-result-card"
+                >
+
+                    <p class="result-label">
+                        Your BMI
+                    </p>
+
+                    <h2 id="bmi-value">
+                        --
+                    </h2>
+
+                    <div
+                        id="bmi-category"
+                        class="bmi-category"
+                    >
+                        Enter your details
+                    </div>
+
+                    <p
+                        id="bmi-message"
+                        class="bmi-message"
+                    >
+                    </p>
+
+                </div>
+
+
+                <div class="bmi-info">
+
+                    <h3>About BMI</h3>
+
+                    <p>
+                        BMI is a general screening measure based
+                        on height and weight. Adult BMI categories
+                        are not intended for people under 18.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="clear-bmi"
+                    class="small-button full-button"
+                >
+                    Clear BMI
+                </button>
+
+            </section>
+
+
+            <!-- Bottom Controls -->
+
+            <div class="bottom-controls">
+
+                <button
+                    id="dark-mode"
+                    class="control-button"
+                >
+                    🌙 Dark Mode
+                </button>
+
+                <button
+                    id="glitch-mode"
+                    class="control-button"
+                >
+                    ⚡ Glitch Mode
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
